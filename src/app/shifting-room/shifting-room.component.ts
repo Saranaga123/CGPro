@@ -106,7 +106,7 @@ export class ShiftingRoomComponent {
   ]
   imgsrc:string=this.imgList[28]
   reps:number=10
-  sets:number=2
+  sets:number=3
   SSDATA:any={}
   exe1:string=""
   exe2:string=""
