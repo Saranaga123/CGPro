@@ -1,0 +1,30 @@
+.row{
+  width: 100%;
+}
+.DAY{
+  color: white;
+}
+.tcenter{
+  text-align: center;
+  filter: drop-shadow(0 -1mm 6mm rgb(255, 255, 255));
+  position:fixed;
+  bottom: 40%;
+  z-index: 101;
+  animation: move2 5s infinite;
+}
+@keyframes move2 {
+  0% { opacity:1 ; }
+  50% { opacity:0.5 ; }
+  100% { opacity:1 ; }
+}
+.popup{
+  position: fixed;
+  bottom:50px;
+  left : 0px;
+  margin-left: 10%;
+  background-color: rgb(196, 42, 109);
+  border-radius: 10px;
+  width:80%;
+  z-index: 1000;
+  padding:5px 5px 5px 5px;
+}

@@ -1,0 +1,50 @@
+<div class="row">
+  <h2 class="whiteText">{{currentStep}}/{{fullCount}}</h2>
+</div>
+<div class="row">
+  <h1 class="whiteText">{{exName}} </h1>
+</div>
+<div class="row tm50">
+  <h3 class="whiteText">{{exType}} </h3>
+</div>
+<div class="row">
+  <img [src]="imgsrc" width="100%" style="max-height: 300px;" >
+</div>
+<div class="row center" >
+  <h2 class="whiteText">{{reps}} reps, {{sets}} sets  </h2>
+</div>
+<div class="row divNext" *ngIf="!finish" >
+  <table class="row" style="padding-left: 40px;">
+    <tr class="row">
+      <td style="width:33.2%">
+        <div class="btnNext" (click)="back()" *ngIf="currentStep!=1">
+          <<
+        </div>
+      </td>
+      <td style="width:33.2%"> 
+        
+      </td>
+      <td style="width:33.2%">
+        <div class="btnNext" (click)="next()" >
+          >>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>  
+<div *ngIf="finish" class="row center divNext" >
+  <table class="row" style="padding-left: 40px;">
+    <tr class="row">
+      <td style="width:33.2%"> 
+      </td>
+      <td style="width:33.2%"> 
+        <div class="btnNext" (click)="finished()">
+          Finish
+        </div>
+      </td>
+      <td style="width:33.2%"> 
+      </td>
+    </tr>
+  </table>
+  
+</div>

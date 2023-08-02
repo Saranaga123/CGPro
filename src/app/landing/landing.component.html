@@ -1,0 +1,101 @@
+<div style="text-align: center;color: rgb(196, 42, 109);font-weight: bolder;font-size: large;filter: drop-shadow(0 -1mm 6mm rgb(255, 255, 255));margin-top: 20%;"> 
+  <p>The Fitness App</p>
+</div>
+<div>
+  <img src="../../assets/logo.png" width="75%" style="margin-left:13.5% ;">
+</div> 
+<div style="text-align: center;color: rgb(196, 42, 109);font-weight: bolder;font-size: large;filter: drop-shadow(0 -1mm 6mm rgb(255, 255, 255));"> 
+  <p style=" text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);font-size: xx-large;"(click)="sign()">CoreGoddess<span style="color: rgb(249, 54, 139);">PRO</span></p>
+  
+</div> 
+<div class="col-12 Signin">
+  <div class="col-3 center "> 
+    <p style=" text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);"(click)="sign()">SignIn </p>
+  </div>
+</div>
+<marquee behavior="" direction="" scrollamount="2"><span style="font-weight: bolder;color : white">Don't wish for it; work for it. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Train like a beast, look like a Goddess."</span></marquee>
+<!-- <div class="row popup" *ngIf="settingspop" style="text-align: center;">
+  <h2>ALPHA CODE :</h2>
+  <p style="color: white;">User need ALPHA code to access settings.</p>
+  <input placeholder=""  [(ngModel)]="settingKey" class="input2" name="text" type="text" (keyup)="activateSettings()">
+  <div class="row "   > 
+    <h2 class="DAY" style="float: right; margin-right: 20px;" (click)="popClear2()" >Back</h2>
+  </div>
+</div> -->
+<!-- <div *ngIf="showIcons">
+  <div class="col-12 berserk" style=" z-index:101 ;">
+    <table  width="100%" >
+      <tr width="100%" height="70px">
+        <td width="33%" style="text-align:center ;" (click)="activateBerserk()"><img src="./../assets/logo/down.png" width="100%"  ><br>Release Seals</td>
+        <td width="33%" style="text-align:center ;" (click)="activateSettingsPop()"><img src="./../assets/logo/rip.png" width="100%"  ><br>Settings</td> 
+      </tr> 
+    </table>
+  </div>
+</div>
+<div *ngIf="showBerserkPoints">
+  <div class="col-12 berserk">
+    <p class="Signin" style=" text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); text-align: right;padding-right: 20px;"><span (click)="closepop()" style="color: red;font-weight: bolder;font-size:xx-large; "><</span> </p>
+    <p style=" text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">BERSERK POINTS (BP): <span style="color: red;font-weight: bolder;font-size:large;">{{BerserkPoints}}</span> </p>
+  </div>
+  <div class="col-12 berserk">
+    <p style=" text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">~SEALS~ </p>
+  </div>
+  <div class="col-12 berserk" style=" z-index:101 ;">
+    <table border="1" width="100%" >
+      <tr width="100%" height="70px">
+        <td width="33%" style="text-align:center ;" (click)="s1Release()"><img [src]="ssrc1" width="100%"  ><br>10BP</td>
+        <td width="33%" style="text-align:center ;" (click)="s2Release()"><img [src]="ssrc2" width="100%"  ><br>20BP</td>
+        <td width="33%" style="text-align:center ;" (click)="s3Release()"><img [src]="ssrc3" width="100%"  ><br>50BP</td>
+      </tr>
+      <tr width="100%" height="70px">
+        <td width="33%" style="text-align:center ;" (click)="s4Release()"><img [src]="ssrc4" width="100%"  ><br>100BP</td>
+        <td width="33%" style="text-align:center ;" (click)="s5Release()"><img [src]="ssrc5" width="100%"  ><br>100BP</td>
+        <td width="33%" style="text-align:center ;" (click)="s6Release()"><img [src]="ssrc6" width="100%"  ><br>200BP</td>
+      </tr>
+      <tr width="100%" height="70px">
+        <td width="33%" style="text-align:center ;" (click)="s7Release()"><img [src]="ssrc7" width="100%"  ><br>500BP</td>
+        <td width="33%" style="text-align:center ;" (click)="s8Release()"><img [src]="ssrc8" width="100%"  ><br>800BP</td>
+        <td width="33%" style="text-align:center ;"(click)="s9Release()"><img [src]="ssrc9" width="100%"  ><br>1000BP</td>
+      </tr>
+      <tr width="100%" height="70px">
+        <td width="33%" style="text-align:center ;"(click)="s10Release()"><img [src]="ssrc10" width="100%"  ><br>1500BP</td>
+        <td width="33%" style="text-align:center ;"(click)="s11Release()"><img [src]="ssrc11" width="100%"  ><br>2000BP</td>
+        <td width="33%" style="text-align:center ;"(click)="s12Release()"><img [src]="ssrc12" width="100%"  ><br>5000BP</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div *ngIf="showSettings"> 
+  <div class="col-12 berserk">
+    <p class="Signin" style=" text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); text-align: right;padding-right: 20px;"><span (click)="closepop()" style="color: red;font-weight: bolder;font-size:xx-large; "><</span> </p>
+     
+  </div>
+  <div class="col-12 berserk">
+    <p style=" text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">~Settings~ </p>
+  </div>
+  <div class="col-12  " style=" z-index:101 ;color: white;">
+    <table  width="100%" >
+      <tr width="100%" height="70px">
+        <td   style="text-align:left ;" >BerserkPoints:</td> 
+        <td><input placeholder="BP"  [(ngModel)]="bp" class="input" name="text" type="text"></td>
+      </tr>
+      <tr width="100%" height="70px">
+        <td   style="text-align:left ;" >Day:</td>
+        <td><input placeholder="Day"  [(ngModel)]="day" class="input" name="text" type="text"></td> 
+      </tr>
+    </table>
+  </div>
+  <div class="col-12 berserk Signin" style="text-align:right ; ">
+    <p style=" text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);padding-right: 30px; " (click)="Update()">Update</p>
+  </div>
+</div> -->
+<!-- <div class="row popup" *ngIf="pop1">
+  <h2>Are you sure to Update!</h2> 
+  <div class="row "   >
+    <h2 class="DAY" style="float: left; margin-left: 20px;" (click)="landingRoom()">YES </h2>
+    <h2 class="DAY" style="float: right; margin-right: 20px;" (click)="popClear()" >NO</h2>
+  </div>
+</div> -->
+<audio id="signInSound">
+  <source src="../../assets/Sounds/electro.mp3" type="audio/mpeg">
+</audio>

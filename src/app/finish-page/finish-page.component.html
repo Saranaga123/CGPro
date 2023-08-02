@@ -1,0 +1,71 @@
+<div class="row">
+  <img src="../../assets/logo/logo.png" width="50%" style="margin-left: 25%;" >
+
+</div>
+<div class="row popup" *ngIf="pop1">
+  <h2>Are you sure !</h2>
+  <div class="row "   >
+    <h2 class="DAY" style="float: left; margin-left: 20px;" (click)="shiftingRoom0()">YES </h2>
+    <h2 class="DAY" style="float: right; margin-right: 20px;" (click)="popClear()" >NO</h2>
+  </div>
+</div>
+<div class="row popup" *ngIf="pop2">
+  <h2>Are you sure !</h2>
+  <h3>Once proceed you cannot do berserk for today</h3>
+  <div class="row "   >
+    <h2 class="DAY" style="float: left; margin-left: 20px;" (click)="lands0()">YES </h2>
+    <h2 class="DAY" style="float: right; margin-right: 20px;" (click)="popClear()" >NO</h2>
+  </div>
+</div>
+<div class="row"*ngIf="!rest">
+  <h2 class="DAY">Day {{DAY}} Finished</h2>
+  <h3 class="DAY">Today you have done {{exe1}} and {{exe2}} related shiftings.</h3>
+</div>
+<div class="row"*ngIf="rest">
+  <h2 class="DAY">Day {{DAY}} REST</h2>
+  <h3 class="DAY">Today you will continue Rest and Recover related shiftings.</h3>
+</div>
+<div class="row" *ngIf="rest">
+  <img src="../../assets/logo/rest.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe1=='CHEST'">
+  <img src="../../assets/logo/chest.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe2=='CHEST'">
+  <img src="../../assets/logo/chest.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe1=='ARMS'">
+  <img src="../../assets/logo/arms.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe2=='ARMS'">
+  <img src="../../assets/logo/arms.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe1=='ABS'">
+  <img src="../../assets/logo/abs.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe2=='ABS'">
+  <img src="../../assets/logo/abs.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe1=='LEGS'">
+  <img src="../../assets/logo/legs.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe2=='LEGS'">
+  <img src="../../assets/logo/legs.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe1=='BACK'">
+  <img src="../../assets/logo/back.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe2=='BACK'">
+  <img src="../../assets/logo/back.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe1=='SHOULDERS'">
+  <img src="../../assets/logo/shoulders.png" width="50%" style="margin-left: 25%;" >
+</div>
+<div class="row" *ngIf="exe2=='SHOULDERS'">
+  <img src="../../assets/logo/shoulders.png" width="50%" style="margin-left: 25%;" >
+</div>
+
+<div class="row  tleft" *ngIf="!rest" >
+  <h2 class="DAY" style="float: left; margin-left: 20px;" (click)="shiftingRoom()">Berserk ({{cbp}}<span style="color:rgb(31, 255, 31) ;"> +{{bp}}</span>)</h2>
+  <h2 class="DAY" style="float: right; margin-right: 20px;" (click)="lands()">Finish</h2>
+</div>

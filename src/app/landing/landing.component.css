@@ -1,0 +1,91 @@
+.logo{
+  animation: move 5s infinite;
+  z-index: 20;
+} 
+@keyframes move {
+  0% { opacity:1 ; }
+  50% { opacity:0.2 ; }
+  100% { opacity:1 ; }
+}
+.input { 
+  background: none; 
+  border: none;
+  outline: none;
+  max-width: 190px; 
+  border-radius: 9999px; 
+  box-shadow: inset 2px 5px 10px rgb(122, 122, 122);
+  padding-left: 10px;
+  color: #fff;
+}
+.input2 { 
+  background: none;  
+  outline: none;
+  max-width: 100%; 
+  border-radius: 9999px; 
+  font-size: larger;
+  box-shadow: inset 2px 5px 10px rgb(122, 122, 122);
+  padding-left: 10px;
+  color: #fff;
+}
+.col-12{
+  width: 100%;
+}
+.col-3{
+  width: 25%;
+}
+.csstest{
+  background-color: aliceblue;
+}
+.center{
+  margin-left: 37.5%;
+  text-align: center;
+}
+.laugh{
+  z-index: -1;
+  position:fixed;
+  bottom:-10%;
+  left: 0;
+  opacity: 0.1;
+  width:300%;
+  animation: movelaugh 30s infinite;
+}
+@keyframes movelaugh {
+  0% { left: 0;  }
+  25% { left: -100%;  }
+  50% { left: -200%;  }
+  75% { left: -100%;  }
+  100% { left: 0;  }
+}
+.berserk{
+  margin-top: 20px;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  font-size: large;
+  filter: drop-shadow(0 -1mm 6mm rgb(0, 0, 0));
+}
+.Signin{
+  position:relative;
+  z-index: 21;
+  color: rgb(198, 142, 0);
+  font-weight: bolder;
+  font-size:x-large;
+  filter: drop-shadow(0 -1mm 6mm rgb(255, 255, 255));
+
+  animation: move2 3s infinite;
+}
+@keyframes move2 {
+  0% { opacity:1 ;  }
+  50% { opacity:0.5 ;  }
+  100% { opacity:1 ;  }
+}
+.popup{
+  position: fixed;
+  bottom:50px;
+  left : 0px;
+  margin-left: 10%;
+  background-color: gray;
+  border-radius: 10px;
+  width:80%;
+  z-index: 1000;
+  padding:5px 5px 5px 5px;
+}

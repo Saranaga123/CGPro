@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@media (min-width: 471px) and (max-width: 90000px) {
+  .notsupported{
+    display: none;
+    z-index: 100;
+  }
+  .orientation-msg{
+    display: block;
+    position: fixed;
+    top:33%;
+    left: 25%;
+  }
+  .clouds{
+    z-index: -1;
+    position:fixed;
+    width:200%;
+    bottom: -140%;
+    left: 0;
+    animation: move 2s infinite;
+  }
+  @keyframes move {
+    0% { left: 0;bottom: -14%; }
+    50% { left: -20%;bottom: -12%; }
+    100% { left: 0;bottom: -14%; }
+  }
+  .bodyy{
+    background-color: rgb(119, 246, 253);
+  }
+}
+
+@media (min-width:1px) and (max-width: 470px) {
+  .notsupported{
+    display: block;
+  }
+  .orientation-msg{
+    display: none;
+  }
+  .bodyy{
+    background-color:rgb(110, 187, 234);
+  }
+  .clouds{
+    z-index: -1;
+    position:fixed;
+    width:500%;
+    bottom: -140%;
+    left: 0;
+    animation: move 20s infinite;
+  }
+  @keyframes move {
+    0% { left: 0;bottom: -140%; }
+    50% { left: -200%;bottom: -50%; }
+    100% { left: 0;bottom: -140%; }
+  }
+}
