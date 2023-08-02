@@ -12,6 +12,7 @@ export class FinishPageComponent {
   rest:boolean=false
   exe1:string=""
   exe2:string=""
+  exType:string=""
   cbp:string=''
   bp:number=0
   dayc:number=0;
@@ -38,49 +39,36 @@ export class FinishPageComponent {
     this.DAY = JSON.parse (localStorage.getItem('daycount')|| "0")
     this.DAY2 = JSON.parse (localStorage.getItem('daycount2')|| "0")
     this.NumDay = Number(this.DAY2)
-    if(this.NumDay==1){
-      this.exe1="CHEST"
-      this.exe2="ARMS"
-      localStorage.setItem("TodayExe1",'CHEST')
-      localStorage.setItem("TodayExe2",'ARMS')
+    this.exe1=localStorage.getItem("TodayExe1") || ""
+    this.exType = this.exe1
+    if(this.NumDay==1){ 
+      localStorage.setItem("TodayExe1",'Today We Forcus on Upper Body')
+      localStorage.setItem("TodayExe2",'Today We Forcus on Upper Body')
     }
-    if(this.NumDay==2){
-      this.exe1="ABS"
-      this.exe2="LEGS"
-      localStorage.setItem("TodayExe1",'ABS')
-      localStorage.setItem("TodayExe2",'LEGS')
+    if(this.NumDay==2){ 
+      localStorage.setItem("TodayExe1",'Today We Forcus on Core and Abs')
+      localStorage.setItem("TodayExe2",'Today We Forcus on Core and Abs')
     }
-    if(this.NumDay==3){
-      this.exe1="BACK"
-      this.exe2="SHOULDERS"
-      localStorage.setItem("TodayExe1",'BACK')
-      localStorage.setItem("TodayExe2",'SHOULDERS')
+    if(this.NumDay==3){ 
+      localStorage.setItem("TodayExe1",'Today We Forcus on Lower Body')
+      localStorage.setItem("TodayExe2",'Today We Forcus on Lower Body')
     }
-    if(this.NumDay==4){
-      this.exe1="ABS"
-      this.exe2="ARMS"
-      localStorage.setItem("TodayExe1",'ABS')
-      localStorage.setItem("TodayExe2",'ARMS')
+    if(this.NumDay==4){ 
+      localStorage.setItem("TodayExe1",'Today We Forcus on Rest')
+      localStorage.setItem("TodayExe2",'Today We Forcus on Rest')
     }
-    if(this.NumDay==5){
-      this.exe1="CHEST"
-      this.exe2="LEGS"
-      localStorage.setItem("TodayExe1",'CHEST')
-      localStorage.setItem("TodayExe2",'LEGS')
+    if(this.NumDay==5){ 
+      localStorage.setItem("TodayExe1",'Today We Forcus on  Total Body')
+      localStorage.setItem("TodayExe2",'Today We Forcus on  Total Body')
     }
-    if(this.NumDay==6){
-      this.exe1="BACK"
-      this.exe2="ABS"
-      localStorage.setItem("TodayExe1",'BACK')
-      localStorage.setItem("TodayExe2",'ABS')
+    if(this.NumDay==6){ 
+      localStorage.setItem("TodayExe1",'Today We Forcus on  Core and Abs')
+      localStorage.setItem("TodayExe2",'Today We Forcus on  Core and Abs')
     }
-    if(this.NumDay==7){
-      this.rest=true
-      this.exe1="REST"
-      this.exe2=""
-      localStorage.setItem("TodayExe1",'REST')
-      localStorage.setItem("TodayExe2",'')
-      localStorage.setItem('daycount2',"1")
+    if(this.NumDay==7){  
+      localStorage.setItem("TodayExe1",'Today We Forcus on Rest')
+      localStorage.setItem("TodayExe2",'Today We Forcus on Rest')
+      
     }
   }
   checktruedate(){
@@ -187,14 +175,26 @@ export class FinishPageComponent {
     this.pop2=false
     this.dayc = Number(localStorage.getItem('daycount') || 0);
     this.dayc2 = Number(localStorage.getItem('daycount2') || 0);
-    var dc = this.dayc
-    var dt = dc+1
-    var dc2 = this.dayc2
-    var dt2 = dc2+1
-    console.log("c0:",this.dayc)
-    localStorage.setItem('daycount',JSON.stringify(dt))
-    localStorage.setItem('daycount2',JSON.stringify(dt2))
-    this.router.navigate(['']);
+    if(this.dayc2==7){
+      var dc = this.dayc
+      var dt = dc+1
+      var dc2 = 0
+      var dt2 = dc2+1
+      console.log("c0:",this.dayc)
+      localStorage.setItem('daycount',JSON.stringify(dt))
+      localStorage.setItem('daycount2',JSON.stringify(dt2))
+      this.router.navigate(['']);
+    }else{
+      var dc = this.dayc
+      var dt = dc+1
+      var dc2 = this.dayc2
+      var dt2 = dc2+1
+      console.log("c0:",this.dayc)
+      localStorage.setItem('daycount',JSON.stringify(dt))
+      localStorage.setItem('daycount2',JSON.stringify(dt2))
+      this.router.navigate(['']);
+    }
+    
   }
   lands(){
     this.pop2=true

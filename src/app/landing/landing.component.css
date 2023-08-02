@@ -61,12 +61,12 @@
   color: rgb(255, 255, 255);
   font-weight: bolder;
   font-size: large;
-  filter: drop-shadow(0 -1mm 6mm rgb(0, 0, 0));
+  filter: drop-shadow(0 -1mm 2mm rgb(102, 102, 102));
 }
 .Signin{
   position:relative;
   z-index: 21;
-  color: rgb(198, 142, 0);
+  color: rgb(249, 54, 139);
   font-weight: bolder;
   font-size:x-large;
   filter: drop-shadow(0 -1mm 6mm rgb(255, 255, 255));

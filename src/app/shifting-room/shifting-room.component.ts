@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./shifting-room.component.css']
 })
 export class ShiftingRoomComponent {
+  audio: HTMLAudioElement | null = null;
   currentStep:number=1
   fullCount:number=10
   exType:string=""
@@ -68,49 +69,57 @@ export class ShiftingRoomComponent {
     "../../assets/EX/WideTwist.png",
     // day2
     "../../assets/EX/WarmUp.png",
-    "../../assets/EX/ARMS/DB CURL.jpg",
-    "../../assets/EX/ARMS/EZ BAR CURL.jpg",
-    "../../assets/EX/ARMS/HAMMER CURL.jpg",
-    "../../assets/EX/ARMS/OVERHEAD EXTENSION.jpg",
-    "../../assets/EX/ARMS/SKULL CRUSHERS.jpg",
+    "../../assets/EX/Bridges.png",
+    "../../assets/EX/HalfWipes.png",
+    "../../assets/EX/KneeToElbow.png",
+    "../../assets/EX/LegPullIn.png",
+    "../../assets/EX/PlankLegExtension.png",
+    "../../assets/EX/ReverceCrunch.png",
     // day3
     "../../assets/EX/WarmUp.png",
-    "../../assets/EX/SHOULDERS/BARBELL STANDING PRESS.jpg",
-    "../../assets/EX/SHOULDERS/SEATED DUMBBELL PRESS.jpg",
-    "../../assets/EX/SHOULDERS/ARNOLD PRESS.jpg",
-    "../../assets/EX/SHOULDERS/LATERAL RAISE.jpg",
-    "../../assets/EX/SHOULDERS/BENT OVER REVERSE FLY.jpg",
-    "../../assets/EX/SHOULDERS/UPRIGHT ROW.jpg",
-    "../../assets/EX/SHOULDERS/FRONT RAISES.jpg",
+    "../../assets/EX/BackLegRaise.png",
+    "../../assets/EX/LegExtension.png",
+    "../../assets/EX/LegRaise.png",
+    "../../assets/EX/ObliqueSideLegRaise.png",
+    "../../assets/EX/SideLegRaise.png",
+    "../../assets/EX/StretchHold.png",
     // day4
-    "../../assets/EX/LEGS/Back Squartes.PNG",
-    "../../assets/EX/LEGS/Lunges.PNG",
-    "../../assets/EX/LEGS/Romanian Deadlifts.PNG",
-    "../../assets/EX/LEGS/Hip Thrusts.PNG",
-    "../../assets/EX/LEGS/Calf Raises.PNG",
-    "../../assets/EX/LEGS/Box Squartes.PNG",
+    "../../assets/EX/rest.jpg", 
     // day5
     "../../assets/EX/WarmUp.png",
-    "../../assets/EX/BACK/Diver Push Ups.PNG",
-    "../../assets/EX/BACK/Half Squat.PNG",
-    "../../assets/EX/BACK/Double Chest Expansion.PNG",
-    "../../assets/EX/BACK/LawnMovers.PNG",
-    "../../assets/EX/BACK/DeadLifts.PNG",
-    "../../assets/EX/BACK/Wall Arm Slides.PNG", 
+    "../../assets/EX/BridgeKneeRaise.png",
+    "../../assets/EX/ButterFlyDips.png",
+    "../../assets/EX/FrontLegRaise.png",
+    "../../assets/EX/SideBends.png",
+    "../../assets/EX/Twist.png",
+    "../../assets/EX/WideTwist.png", 
+    //day6
+    "../../assets/EX/WarmUp.png",
+    "../../assets/EX/Bridges.png",
+    "../../assets/EX/HalfWipes.png",
+    "../../assets/EX/KneeToElbow.png",
+    "../../assets/EX/LegPullIn.png",
+    "../../assets/EX/PlankLegExtension.png",
+    "../../assets/EX/ReverceCrunch.png", 
+    // day7
+    "../../assets/EX/rest.jpg", 
   ]
   imgsrc:string=this.imgList[28]
   reps:number=10
-  sets:number=3
+  sets:number=2
   SSDATA:any={}
   exe1:string=""
   exe2:string=""
   CDay:string=""
-  BiginCounter1:number=0
-  EndCounter1:number=0
-  BiginCounter2:number=0
-  EndCounter2:number=0
+  BiginCounter:number=0
+  EndCounter:number=0
   finish:boolean=false
   repAdd:number=0
+  minutes: number = 15;
+  seconds: number = 0;
+  initialMinutes: number = 15;
+  initialSeconds: number = 0;
+  countdownInterval: any;
   constructor(private router: Router) { }
   ngOnInit(): void {
     console.log("exList Length : ",this.exList.length)
@@ -130,94 +139,76 @@ export class ShiftingRoomComponent {
 
     if(this.CDay=="1"){
       this.fullCount=7
-      this.BiginCounter1=0
-      this.EndCounter1=1
-      this.BiginCounter2=2
-      this.EndCounter2=6
+      this.BiginCounter=0
+      this.EndCounter=6
       this.exName=this.exList[0]
       this.imgsrc=this.imgList[0]
     }
     if(this.CDay=="2"){
       this.fullCount=7
-      this.BiginCounter1=7
-      this.EndCounter1=8
-      this.BiginCounter2=9
-      this.EndCounter2=13
-      this.exName=this.exList[28]
-      this.imgsrc=this.imgList[28]
+      this.BiginCounter=7
+      this.EndCounter=13
+      this.exName=this.exList[7]
+      this.imgsrc=this.imgList[7]
     }
     if(this.CDay=="3"){
       this.fullCount=7
-      this.BiginCounter1=14
-      this.EndCounter1=15
-      this.BiginCounter2=16
-      this.EndCounter2=20
-      this.exName=this.exList[23]
-      this.imgsrc=this.imgList[23]
+      this.BiginCounter=14
+      this.EndCounter=20
+      this.exName=this.exList[14]
+      this.imgsrc=this.imgList[14]
     }
     if(this.CDay=="4"){
       this.fullCount=1
-      this.BiginCounter1=20
-      this.EndCounter1=22
-      this.BiginCounter2=22
-      this.EndCounter2=22
-      this.exName=this.exList[28]
-      this.imgsrc=this.imgList[28]
+      this.BiginCounter=20
+      this.EndCounter=20
+      this.exName=this.exList[21]
+      this.imgsrc=this.imgList[21]
     }
     if(this.CDay=="5"){
       this.fullCount=7
-      this.BiginCounter1=22
-      this.EndCounter1=23
-      this.BiginCounter2=24
-      this.EndCounter2=28
-      this.exName=this.exList[0]
-      this.imgsrc=this.imgList[0]
-    }
-    if(this.CDay=="6"){
-      this.fullCount=1
-      this.BiginCounter1=22
-      this.EndCounter1=28
-      this.BiginCounter2=29
-      this.EndCounter2=63
+      this.BiginCounter=22
+      this.EndCounter=28
       this.exName=this.exList[22]
       this.imgsrc=this.imgList[22]
     }
+    if(this.CDay=="6"){
+      this.fullCount=7
+      this.BiginCounter=29
+      this.EndCounter=35
+      this.exName=this.exList[29]
+      this.imgsrc=this.imgList[29]
+    }
+    if(this.CDay=="7"){
+      this.fullCount=1
+      this.BiginCounter=36
+      this.EndCounter=36
+      this.exName=this.exList[36]
+      this.imgsrc=this.imgList[36]
+    }
   }
   next(){
+    this.resetCountdown()
+    clearInterval(this.countdownInterval);
     const audio = new Audio('../../assets/Sounds/electro.mp3');
       audio.play();
-    console.log("this.BiginCounter1",this.BiginCounter1)
-    console.log("this.EndCounter1",this.EndCounter1)
-    if(this.BiginCounter1<this.EndCounter1){
-      this.BiginCounter1++
+    console.log("this.BiginCounter",this.BiginCounter)
+    console.log("this.EndCounter",this.EndCounter)
+    if(this.BiginCounter<this.EndCounter){
+      this.BiginCounter++
       this.currentStep++
-      this.exName=this.exList[this.BiginCounter1]
-      this.imgsrc=this.imgList[this.BiginCounter1]
-    }else if(this.BiginCounter2<=this.EndCounter2){
-      this.exType=this.exe2
-
-      this.currentStep++
-      this.exName=this.exList[this.BiginCounter2]
-      this.imgsrc=this.imgList[this.BiginCounter2]
-      this.BiginCounter2++
+      this.exName=this.exList[this.BiginCounter]
+      this.imgsrc=this.imgList[this.BiginCounter]
     }else{
-      this.finish=true
-      this.exType
+      this.finish=true 
     }
   }
   back(){
-    if(this.BiginCounter1<this.EndCounter1){
-      this.BiginCounter1--
+    if(this.BiginCounter<this.EndCounter){
+      this.BiginCounter--
       this.currentStep--
-      this.exName=this.exList[this.BiginCounter1]
-      this.imgsrc=this.imgList[this.BiginCounter1]
-    }else if(this.BiginCounter2<=this.EndCounter2){
-      this.exType=this.exe2
-
-      this.currentStep--
-      this.exName=this.exList[this.BiginCounter2]
-      this.imgsrc=this.imgList[this.BiginCounter2]
-      this.BiginCounter2--
+      this.exName=this.exList[this.BiginCounter]
+      this.imgsrc=this.imgList[this.BiginCounter]
     }else{
       this.finish=true
       this.exType
@@ -225,5 +216,36 @@ export class ShiftingRoomComponent {
   }
   finished(){
     this.router.navigate(['finishroom']);
+  }
+  startrun(){
+    this.audio = new Audio('../../assets/Sounds/run music.mp3');
+    this.audio.play();
+    this.countdownInterval = setInterval(() => {
+      if (this.seconds === 0) {
+        if (this.minutes === 0) {
+          // Countdown is complete
+          clearInterval(this.countdownInterval);
+        } else {
+          this.minutes--;
+          this.seconds = 59;
+        }
+      } else {
+        this.seconds--;
+      }
+    }, 1000);
+  }
+  stopCountdown(): void {
+    clearInterval(this.countdownInterval);
+  }
+  resetCountdown(): void {
+    if (this.audio) {
+      this.audio.pause();
+    } else {
+      console.log("here");
+    }
+    this.audio = null; 
+    this.stopCountdown();
+    this.minutes = this.initialMinutes;
+    this.seconds = this.initialSeconds;
   }
 }

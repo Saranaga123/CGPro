@@ -10,8 +10,15 @@
 <div class="row">
   <img [src]="imgsrc" width="100%" style="max-height: 300px;" >
 </div>
-<div class="row center" >
-  <h2 class="whiteText">{{reps}} reps, {{sets}} sets  </h2>
+<div class="row center" *ngIf="CDay !== '4' && CDay !== '7'">
+  <h2 class="whiteText" *ngIf="exName !== 'Warm Up Run'">{{reps}} reps, {{sets}} sets  </h2>
+  <h2 class="whiteText" *ngIf="exName === 'Warm Up Run'">15 min</h2>
+  <div *ngIf="exName === 'Warm Up Run'" style="color:White ; font-size:xx-large; margin-top:30px; padding: 10px 10px 10px 10px;background-color:rgba(0, 0, 0, 0.623) "   >
+    <span (click)="resetCountdown()">RESET</span><br>
+
+    <span style="font-size:70px ;">{{ minutes }} : {{ seconds | number: '2.0' }}</span><br>
+    <span (click)="startrun()">START RUN</span><br>
+  </div>
 </div>
 <div class="row divNext" *ngIf="!finish" >
   <table class="row" style="padding-left: 40px;">

@@ -1,31 +1,29 @@
 <div class="row">
-  <img src="../../assets/logo/logo.png" width="50%" style="margin-left: 25%;" >
+  <img src="../../assets/logo.png" width="50%" style="margin-left: 25%;" >
 
 </div>
-<div class="row popup" *ngIf="pop1">
+<div class="row popup" *ngIf="pop1" style="color:white ;">
   <h2>Are you sure !</h2>
   <div class="row "   >
     <h2 class="DAY" style="float: left; margin-left: 20px;" (click)="shiftingRoom0()">YES </h2>
     <h2 class="DAY" style="float: right; margin-right: 20px;" (click)="popClear()" >NO</h2>
   </div>
 </div>
-<div class="row popup" *ngIf="pop2">
-  <h2>Are you sure !</h2>
-  <h3>Once proceed you cannot do berserk for today</h3>
+<div class="row popup" *ngIf="pop2" style="color:white ;">
+  <h2>Are you sure !</h2> 
   <div class="row "   >
     <h2 class="DAY" style="float: left; margin-left: 20px;" (click)="lands0()">YES </h2>
     <h2 class="DAY" style="float: right; margin-right: 20px;" (click)="popClear()" >NO</h2>
   </div>
 </div>
 <div class="row"*ngIf="!rest">
-  <h2 class="DAY">Day {{DAY}} Finished</h2>
-  <h3 class="DAY">Today you have done {{exe1}} and {{exe2}} related shiftings.</h3>
+  <h2 class="DAY">{{exType}}</h2> 
 </div>
 <div class="row"*ngIf="rest">
-  <h2 class="DAY">Day {{DAY}} REST</h2>
-  <h3 class="DAY">Today you will continue Rest and Recover related shiftings.</h3>
+  <h2 class="DAY">{{exType}}</h2> 
 </div>
-<div class="row" *ngIf="rest">
+
+<!-- <div class="row" *ngIf="rest">
   <img src="../../assets/logo/rest.png" width="50%" style="margin-left: 25%;" >
 </div>
 <div class="row" *ngIf="exe1=='CHEST'">
@@ -63,9 +61,9 @@
 </div>
 <div class="row" *ngIf="exe2=='SHOULDERS'">
   <img src="../../assets/logo/shoulders.png" width="50%" style="margin-left: 25%;" >
-</div>
+</div> -->
 
-<div class="row  tleft" *ngIf="!rest" >
-  <h2 class="DAY" style="float: left; margin-left: 20px;" (click)="shiftingRoom()">Berserk ({{cbp}}<span style="color:rgb(31, 255, 31) ;"> +{{bp}}</span>)</h2>
-  <h2 class="DAY" style="float: right; margin-right: 20px;" (click)="lands()">Finish</h2>
+<div class="row  tleft" style="text-align:center ;" *ngIf="!rest" >
+  <!-- <h2 class="DAY" style="float: left; margin-left: 20px;" (click)="shiftingRoom()">Berserk ({{cbp}}<span style="color:rgb(31, 255, 31) ;"> +{{bp}}</span>)</h2> -->
+  <h2 class="DAY" (click)="lands()">Finish</h2>
 </div>

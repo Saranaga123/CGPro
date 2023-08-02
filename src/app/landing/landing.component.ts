@@ -76,7 +76,7 @@ export class LandingComponent {
     this.closepop()
   }
   activateSettingsPop(){ 
-    this.settingspop=true
+    // this.settingspop=true
   }
   activateSettings(){
     if(this.settingKey=="Kk"||this.settingKey=="kk"||this.settingKey=="KK"){
@@ -93,6 +93,7 @@ export class LandingComponent {
     this.settingspop=false
   }
   closepop(){
+    this.settingspop=false
     this.showBerserkPoints=false
     this.showIcons=true
     this.showSettings=false

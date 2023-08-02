@@ -63,13 +63,12 @@ export class SigninComponent {
       localStorage.setItem("TodayExe1",'Today We Forcus on  Core and Abs')
       localStorage.setItem("TodayExe2",'Today We Forcus on  Core and Abs')
     }
-    if(this.NumDay==7){
-      this.rest=true
+    if(this.NumDay==7){ 
       this.exe1="REST"
       this.exe2=""
       localStorage.setItem("TodayExe1",'Today We Forcus on Rest')
       localStorage.setItem("TodayExe2",'Today We Forcus on Rest')
-      localStorage.setItem('daycount2',"1")
+      
     }
   }
   checktruedate(){
