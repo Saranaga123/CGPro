@@ -217,6 +217,16 @@ export class ShiftingRoomComponent {
   finished(){
     this.router.navigate(['finishroom']);
   }
+  home(){
+    this.router.navigate(['']);
+    if (this.audio) {
+      this.audio.pause();
+    } else {
+      console.log("here");
+    }
+    this.audio = null; 
+    this.stopCountdown();
+  }
   startrun(){
     this.audio = new Audio('../../assets/Sounds/run music.mp3');
     this.audio.play();

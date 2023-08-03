@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';  
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -39,12 +39,15 @@ export class LandingComponent {
   day:string="";
   pop1:boolean=false
   settingspop:boolean=false;
-  settingKey:string=""
+  settingKey:string="";
+  updateDate:string="";
+  multy:string="1"
 
   ngOnInit(): void {
     // this.createUserData()
     this.createUserData2()
     this.BerserkPoints=JSON.parse(localStorage.getItem("BerserkPoints")||'0')
+    this.updateDate=JSON.parse(localStorage.getItem("daycount2")||'1')
     setTimeout(() => {
       const audio = new Audio('../../assets/Sounds/electro.mp3');
       audio.play();
@@ -76,7 +79,7 @@ export class LandingComponent {
     this.closepop()
   }
   activateSettingsPop(){ 
-    // this.settingspop=true
+    this.settingspop=true
   }
   activateSettings(){
     if(this.settingKey=="Kk"||this.settingKey=="kk"||this.settingKey=="KK"){
