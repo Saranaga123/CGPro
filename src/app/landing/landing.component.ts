@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
-import { Router } from '@angular/router';  
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -47,7 +47,7 @@ export class LandingComponent {
     // this.createUserData()
     this.createUserData2()
     this.BerserkPoints=JSON.parse(localStorage.getItem("BerserkPoints")||'0')
-    this.updateDate=JSON.parse(localStorage.getItem("daycount2")||'1')
+    this.updateDate=JSON.parse(localStorage.getItem("daycount")||'1')
     setTimeout(() => {
       const audio = new Audio('../../assets/Sounds/electro.mp3');
       audio.play();
@@ -69,13 +69,17 @@ export class LandingComponent {
   }
   landingRoom(){
     this.pop1=false
-    this.settingspop=false
-    localStorage.setItem("BerserkPoints",(this.bp))
-    localStorage.setItem("daycount",(this.day))
-
-    const numericDay = parseInt(this.day, 10); // Convert the string to an integer
-    const result = (numericDay % 7) + 1;
-    localStorage.setItem("daycount2", result.toString());
+    this.settingspop=false 
+    localStorage.setItem("daycount",(this.updateDate))
+    const numericDay = parseInt(this.updateDate, 10); // Convert the string to an integer
+    if(numericDay % 7 == 0){ 
+      localStorage.setItem("daycount2", "7");
+    }else{
+      const result = (numericDay % 7);
+      console.log("result :",result)
+      localStorage.setItem("daycount2", result.toString());
+    }
+    
     this.closepop()
   }
   activateSettingsPop(){ 

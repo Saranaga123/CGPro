@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { SigninComponent } from './signin/signin.component';
 import { ShiftingRoomComponent } from './shifting-room/shifting-room.component';
-import { FinishPageComponent } from './finish-page/finish-page.component'; 
+import { FinishPageComponent } from './finish-page/finish-page.component';  
+import { CommonModule } from '@angular/common'; 
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FinishPageComponent } from './finish-page/finish-page.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule, 
+    CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule
   ],

@@ -41,14 +41,14 @@
   </div>
   <div class="col-12  " style=" z-index:101 ;color: white;">
     <table  width="100%" >
-      <tr width="100%" height="70px">
+      <!-- <tr width="100%" height="70px">
         <td   style="text-align:left ;" >Multiplier :</td> 
         <td><input placeholder="1"   class="input" name="text" type="text"></td>
-      </tr>
+      </tr> -->
       <tr width="100%" height="70px">
-        <td   style="text-align:left ;" >Day:</td>
-        <td><input placeholder="Day" [(ngModel)]="updateDate"   class="input" name="text" type="text"></td> 
-      </tr>
+        <td   style="text-align:left ;" >Full Day Count:</td>
+        <td><input placeholder="Day" [(ngModel)]="updateDate" *ngIf="true"   class="input" name="text" type="text"></td> 
+      </tr> 
     </table>
   </div>
   <div class="col-12 berserk Signin" style="text-align:right ; ">
