@@ -227,7 +227,9 @@ export class ShiftingRoomComponent {
     this.audio = null; 
     this.stopCountdown();
   }
+  runstarted:boolean=false
   startrun(){
+    this.runstarted=true
     this.audio = new Audio('../../assets/Sounds/run music.mp3');
     this.audio.play();
     this.countdownInterval = setInterval(() => {
@@ -248,6 +250,7 @@ export class ShiftingRoomComponent {
     clearInterval(this.countdownInterval);
   }
   resetCountdown(): void {
+    this.runstarted=false
     if (this.audio) {
       this.audio.pause();
     } else {

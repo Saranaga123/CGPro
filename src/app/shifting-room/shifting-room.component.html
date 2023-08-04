@@ -2,7 +2,7 @@
   <h2 class="whiteText">{{currentStep}}/{{fullCount}}</h2>
 </div>
 <div style="position:fixed;top:20px;right:20px;width:50px;" (click)="home()">
-  <img src="../../assets/home.jpg" width="100%" style="margin-left:13.5% ;border-radius: 10px;">
+  <img src="../../assets/home.png" width="100%" style="margin-left:13.5% ;border-radius: 10px;">
 </div>
 <div class="row">
   <h1 class="whiteText">{{exName}} </h1>
@@ -16,11 +16,13 @@
 <div class="row center" *ngIf="CDay !== '4' && CDay !== '7'">
   <h2 class="whiteText" *ngIf="exName !== 'Warm Up Run'">{{reps}} reps, {{sets}} sets  </h2>
   <h2 class="whiteText" *ngIf="exName === 'Warm Up Run'">15 min</h2>
-  <div *ngIf="exName === 'Warm Up Run'" style="color:White ; font-size:xx-large; margin-top:30px; padding: 10px 10px 10px 10px;background-color:rgba(0, 0, 0, 0.623) "   >
-    <span (click)="resetCountdown()">RESET</span><br>
+  <div *ngIf="exName === 'Warm Up Run'" style="color:White ;  margin-top:30px; padding: 10px 10px 10px 10px;background-color:rgba(0, 0, 0, 0.623) "   >
 
     <span style="font-size:70px ;">{{ minutes }} : {{ seconds | number: '2.0' }}</span><br>
-    <span (click)="startrun()">START RUN</span><br>
+    <span *ngIf="runstarted==false" (click)="startrun()"><img src="../../assets/play.png" width="30px" style=" border-radius: 10px;"></span> 
+    <span *ngIf="runstarted==true" (click)="resetCountdown()"><img src="../../assets/stop.png" width="30px" style=" border-radius: 10px;">
+       
+    </span><br> 
   </div>
 </div>
 <div class="row divNext" *ngIf="!finish" >
