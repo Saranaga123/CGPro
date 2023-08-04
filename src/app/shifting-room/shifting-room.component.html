@@ -16,9 +16,14 @@
 <div class="row center" *ngIf="CDay !== '4' && CDay !== '7'">
   <h2 class="whiteText" *ngIf="exName !== 'Warm Up Run'">{{reps}} reps, {{sets}} sets  </h2>
   <h2 class="whiteText" *ngIf="exName === 'Warm Up Run'">15 min</h2>
-  <div *ngIf="exName === 'Warm Up Run'" style="color:White ;  margin-top:30px; padding: 10px 10px 10px 10px;background-color:rgba(0, 0, 0, 0.623) "   >
-
-    <span style="font-size:70px ;">{{ minutes }} : {{ seconds | number: '2.0' }}</span><br>
+  <div *ngIf="exName === 'Warm Up Run'" style="   margin-top:30px; padding: 10px 10px 10px 10px;background-color:rgba(0, 0, 0, 0.623) "   >
+    <div *ngIf="runstarted2 == false" style="color:rgb(255, 89, 89) ;">
+      <span style="font-size:medium ;">GET READY</span><br>
+      <span style="font-size:70px ;">  {{ countdownready | number: '2.0' }}</span><br>
+    </div>
+    <div *ngIf="runstarted2 == true" style="color:White ">
+      <span style="font-size:70px ;">{{ minutes }} : {{ seconds | number: '2.0' }}</span><br>
+    </div>
     <span *ngIf="runstarted==false" (click)="startrun()"><img src="../../assets/play.png" width="30px" style=" border-radius: 10px;"></span> 
     <span *ngIf="runstarted==true" (click)="resetCountdown()"><img src="../../assets/stop.png" width="30px" style=" border-radius: 10px;">
        

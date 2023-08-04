@@ -1,7 +1,7 @@
 <div style="position:fixed ;top : 10px;left:10px; color:white;font-weight:bolder"(click)="goback()">
   <h1><</h1>
 </div>
-<div class="row "style="margin-top: 40%;">
+<div class="row "style="margin-top: 10%;">
   <img src="../../assets/logo.png" width="50%" style="margin-left: 25%;" >
 
 </div>
@@ -17,6 +17,18 @@
   <h2 style="color: rgb(196, 42, 109);">Day {{DAY}} Start</h2>
   <!-- <h3 class="DAY">Today you will continue {{exe1}} and {{exe2}} related shiftings.</h3> -->
 </div>
+<table border="1" >
+  <tr width="100%">
+    <td width="33.2%"><img [src]="todayEX[0]" width="100%"></td>
+    <td width="33.2%"><img [src]="todayEX[1]" width="100%"></td>
+    <td width="33.2%"><img [src]="todayEX[2]" width="100%"></td> 
+  </tr>
+  <tr width="100%">
+    <td width="33.2%"><img [src]="todayEX[3]" width="100%"></td>
+    <td width="33.2%"><img [src]="todayEX[4]" width="100%"></td>
+    <td width="33.2%"><img [src]="todayEX[5]" width="100%"></td> 
+  </tr>
+</table>
  
 <!-- <div class="row" *ngIf="rest">
   <img src="../../assets/logo/rest.png" width="50%" style="margin-left: 25%;" >
