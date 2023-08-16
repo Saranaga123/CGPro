@@ -66,6 +66,12 @@
   
 </div>
 <div *ngIf="rest==true" class="blur-content" style="width:100%;height:99.5vh;z-index:2000;position:fixed;top:0; left:0;padding-top: 200px; ">
-  <span style="color:white; font-weight:bolder;font-size:xx-large; margin-left: 45%; margin-top: 40%;">Rest</span>
-    
+  <div style="width:100% ;text-align:center">
+    <span style="color:white; font-weight:bolder;font-size:xx-large;">Rest</span>
+    <div   style="color:rgb(255, 89, 89) ;margin-top: 30px;margin-bottom: 150px;">
+      <span style="font-size:medium ; ">Time Remaining</span><br>
+      <span style="font-size:70px ;">  {{ countdownrest | number: '2.0' }}</span><br>
+    </div>
+    <span style="color:white; font-weight:bolder;font-size:large;margin-top: 150px; padding: 10px 10px 10px 10px; border: 1px solid white; "(click)="skiprest()">SKIP >></span>
+  </div> 
 </div>

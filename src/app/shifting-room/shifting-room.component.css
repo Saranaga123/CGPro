@@ -2,7 +2,7 @@
   width: 100%;
 }
 .blur-content {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  background-color: rgba(0, 0, 0, 0.664); /* Semi-transparent black background */
   backdrop-filter: blur(5px); 
 }
 .whiteText{

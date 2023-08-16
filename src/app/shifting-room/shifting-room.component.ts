@@ -11,7 +11,7 @@ export class ShiftingRoomComponent {
   currentStep:number=1
   fullCount:number=10
   exType:string=""
-  rest:boolean=true;
+  rest:boolean=false;
   exNameSpeak:string="1";
   exList:any=[
     //day1
@@ -123,6 +123,7 @@ export class ShiftingRoomComponent {
   initialSeconds: number = 0;
   countdownInterval: any;
   countdownready = 15; 
+  countdownrest = 10; 
   readyInterval: any;
   constructor(private router: Router) { }
   ngOnInit(): void {
@@ -192,6 +193,16 @@ export class ShiftingRoomComponent {
     }
   }
   restcoutdown(){
+    this.countdownrest=20
+    this.startrest()
+  }
+  skiprest(){
+    if (this.audio) {
+      this.audio.pause();
+    } else {
+      console.log("here");
+    }
+    this.rest=false
     this.next()
   }
   next(){
@@ -271,6 +282,37 @@ export class ShiftingRoomComponent {
   }
   runstarted:boolean=false
   runstarted2:boolean=false
+  startrest(){
+    this.rest=true 
+    this.readyInterval = setInterval(() => {
+      if (this.countdownrest === 0) {
+        // "Ready" countdown is complete
+        
+         
+      }else if(this.countdownrest === 7){
+        
+        this.restaudio()
+        this.countdownrest--;
+      } else {
+        if(this.countdownrest > 5){
+          this.audio = new Audio('../../assets/Sounds/clock.mp3');
+          this.audio.play();
+          this.countdownrest--;
+        } else{
+          this.countdownrest--;
+        }
+      }
+    }, 1000);
+  }
+  restaudio(){
+    const audiorest = new Audio('../../assets/Sounds/nextplease.mp3');
+    audiorest.play();
+      audiorest.onended = () => {
+         clearInterval(this.readyInterval);
+         this.rest=false
+         this.next() 
+      };  
+  }
   startrun(){
     this.runstarted=true
     this.readyInterval = setInterval(() => {
