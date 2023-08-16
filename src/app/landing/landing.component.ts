@@ -108,8 +108,7 @@ export class LandingComponent {
   }
   sign(){
     console.log("Sign")
-    const audio = new Audio('../../assets/Sounds/sword.mp3');
-      audio.play();
+    
     if(localStorage.getItem('User')=="FreshBlood"){
       this.router.navigate(['signin']);
     }else{

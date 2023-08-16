@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
+  audio: HTMLAudioElement | null = null;
   DAY:string="0";
   NumDay:number=0
   rest:boolean=false
@@ -123,6 +124,8 @@ export class SigninComponent {
     this.DAY = JSON.parse (localStorage.getItem('daycount2')|| "0")
     this.NumDay = Number(this.DAY)
     if(this.NumDay==1){
+      this.audio = new Audio('../../assets/Sounds/day1.mp3');
+      this.audio.play();
       const day1Exercises = [
         this.imgList[1],
         this.imgList[2],
@@ -137,6 +140,8 @@ export class SigninComponent {
       localStorage.setItem("TodayExe2",'Today We Forcus on Upper Body')
     }
     if(this.NumDay==2){
+      this.audio = new Audio('../../assets/Sounds/day2.mp3');
+      this.audio.play();
       const day1Exercises = [
         this.imgList[8],
         this.imgList[9],
@@ -151,6 +156,8 @@ export class SigninComponent {
       localStorage.setItem("TodayExe2",'Today We Forcus on Core and Abs')
     }
     if(this.NumDay==3){
+      this.audio = new Audio('../../assets/Sounds/day3.mp3');
+      this.audio.play();
       const day1Exercises = [
         this.imgList[15],
         this.imgList[16],
@@ -166,6 +173,8 @@ export class SigninComponent {
       localStorage.setItem("TodayExe2",'Today We Forcus on Lower Body')
     }
     if(this.NumDay==4){
+      this.audio = new Audio('../../assets/Sounds/day4.mp3');
+      this.audio.play();
       const day1Exercises = [
         this.imgList[21],
         this.imgList[21],
@@ -180,6 +189,8 @@ export class SigninComponent {
       localStorage.setItem("TodayExe2",'Today We Forcus on Rest')
     }
     if(this.NumDay==5){
+      this.audio = new Audio('../../assets/Sounds/day5.mp3');
+      this.audio.play();
       const day1Exercises = [
         this.imgList[23],
         this.imgList[24],
@@ -194,6 +205,8 @@ export class SigninComponent {
       localStorage.setItem("TodayExe2",'Today We Forcus on  Total Body')
     }
     if(this.NumDay==6){
+      this.audio = new Audio('../../assets/Sounds/day6.mp3');
+      this.audio.play();
       const day1Exercises = [
         this.imgList[30],
         this.imgList[31],
@@ -208,6 +221,8 @@ export class SigninComponent {
       localStorage.setItem("TodayExe2",'Today We Forcus on  Core and Abs')
     }
     if(this.NumDay==7){ 
+      this.audio = new Audio('../../assets/Sounds/day7.mp3');
+      this.audio.play();
       const day1Exercises = [
         this.imgList[21],
         this.imgList[21],
@@ -313,20 +328,26 @@ export class SigninComponent {
     }
   }
   shiftingRoom0(){
-    const audio = new Audio('../../assets/Sounds/sword.mp3');
-      audio.play();
+    if (this.audio) {
+      this.audio.pause();
+    } else {
+      console.log("here");
+    }
+    this.audio = null; 
+    this.audio = new Audio('../../assets/Sounds/sword.mp3');
+      this.audio.play();
     this.pop1=true
   }
   shiftingRoom(){
-    const audio = new Audio('../../assets/Sounds/electro.mp3');
+    this.audio = new Audio('../../assets/Sounds/electro.mp3');
     
-      audio.play(); 
+    this.audio.play(); 
     this.pop1=false
     this.router.navigate(['shiftingroom']);
   }
   popClear(){
-    const audio = new Audio('../../assets/Sounds/sword.mp3');
-      audio.play(); 
+    this.audio = new Audio('../../assets/Sounds/sword.mp3');
+    this.audio.play(); 
     this.pop1=false
   }
 }

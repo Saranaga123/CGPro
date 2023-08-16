@@ -11,6 +11,8 @@ export class ShiftingRoomComponent {
   currentStep:number=1
   fullCount:number=10
   exType:string=""
+  rest:boolean=true;
+  exNameSpeak:string="1";
   exList:any=[
     //day1
         "Warm Up Run",
@@ -189,18 +191,33 @@ export class ShiftingRoomComponent {
       this.imgsrc=this.imgList[36]
     }
   }
+  restcoutdown(){
+    this.next()
+  }
   next(){
     this.resetCountdown()
     clearInterval(this.countdownInterval);
-    const audio = new Audio('../../assets/Sounds/electro.mp3');
-      audio.play();
     console.log("this.BiginCounter",this.BiginCounter)
+    console.log("Ex type",this.exList[this.BiginCounter+1])
     console.log("this.EndCounter",this.EndCounter)
+    this.exNameSpeak = (this.BiginCounter+1).toString()
+    console.log("../../assets/Sounds/ex/",this.BiginCounter,'.mp3')
+    if(this.CDay=="4" || this.CDay=="7"){ 
+    }else{
+      if(this.BiginCounter!=this.EndCounter){
+        const audionext = new Audio('../../assets/Sounds/start.mp3');
+        audionext.play();
+        audionext.onended = () => {
+          const audio = new Audio(`../../assets/Sounds/ex/${this.exNameSpeak}.mp3`);
+          audio.play();
+        };
+      } 
+    } 
     if(this.BiginCounter<this.EndCounter){
       this.BiginCounter++
       this.currentStep++
       this.exName=this.exList[this.BiginCounter]
-      this.imgsrc=this.imgList[this.BiginCounter]
+      this.imgsrc=this.imgList[this.BiginCounter] 
     }else{
       this.finish=true 
     }
@@ -216,8 +233,31 @@ export class ShiftingRoomComponent {
       this.exType
     }
   }
+  dayc:number=0;
+  dayc2:number=0;
   finished(){
-    this.router.navigate(['finishroom']);
+    this.dayc = Number(localStorage.getItem('daycount') || 0);
+    this.dayc2 = Number(localStorage.getItem('daycount2') || 0);
+    if(this.dayc2==7){
+      var dc = this.dayc
+      var dt = dc+1
+      var dc2 = 0
+      var dt2 = dc2+1
+      console.log("c0:",this.dayc)
+      localStorage.setItem('daycount',JSON.stringify(dt))
+      localStorage.setItem('daycount2',JSON.stringify(dt2))
+      this.router.navigate(['']);
+    }else{
+      var dc = this.dayc
+      var dt = dc+1
+      var dc2 = this.dayc2
+      var dt2 = dc2+1
+      console.log("c0:",this.dayc)
+      localStorage.setItem('daycount',JSON.stringify(dt))
+      localStorage.setItem('daycount2',JSON.stringify(dt2))
+      this.router.navigate(['']);
+    }
+    this.router.navigate(['']);
   }
   home(){
     this.router.navigate(['']);
